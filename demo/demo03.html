@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./js/jquery-1.11.3.js"></script>
+<script src="../jquery.mscroll.js"></script>
+<title>横向无缝滚动插件demo</title>
+<style>
+ul,li{padding:0;margin:0;list-style:none;}
+.left,.right{width:50px; height:200px; line-height:200px; text-align:center;float:left; background:rgba(0,0,0,.2);cursor:pointer;}
+.content{float:left;}
+.content li{float:left;width:400px; height:200px; margin-left:1px;}
+.page{clear:both;margin-top:20px;float:left;}
+.page li{float:left;border:solid 1px #ccc; width:50px; height:20px; line-height:20px; text-align:center;cursor:pointer;}
+.page li.on{background:red;color:#fff;}
+</style>
+</head>
+<body>
+<p>定位翻页</p>
+<div class="DEMO">
+  <div class="left"><</div><!--左侧按钮-->
+    <ul class="content">
+        <li><img src="./images/1.jpg" width="400" height="200" /></li>
+        <li><img src="./images/2.jpg" width="400" height="200" /></li>
+        <li><img src="./images/3.jpg" width="400" height="200" /></li>
+        <li><img src="./images/4.jpg" width="400" height="200" /></li>
+        <li><img src="./images/5.jpg" width="400" height="200" /></li>
+        <li><img src="./images/6.jpg" width="400" height="200" /></li>
+    </ul>
+	<div class="right">></div><!--右侧按钮-->
+</div>
+<ul class="page">
+	<li class="p1 on">第1页</li>
+    <li class="p2">第2页</li>
+    <li class="p3">第3页</li>
+    <li class="p4">第4页</li>
+    <li class="p5">第5页</li>
+    <li class="p6">第6页</li>
+</ul>
+<script>
+$(function(){
+	$.mscroll(
+		{left:'.left',center:'.content',right:'.right'}, //固定选择器部分
+		//参数设置部分
+		{		
+			num:1,  //显示数量
+			jump:[['.p1',1],['.p2',2],['.p3',3],['.p4',4],['.p5',5],['.p6',6]],
+		}						
+	);
+
+	$(".page li").on("click",function(){
+		$(this).addClass("on").siblings().removeClass("on");	
+	});		
+})
+
+</script>
+</body>
+</html>

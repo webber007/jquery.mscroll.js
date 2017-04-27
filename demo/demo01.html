@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./js/jquery-1.11.3.js"></script>
+<script src="../jquery.mscroll.js"></script>
+<title>横向无缝滚动插件demo</title>
+<style>
+ul,li{padding:0;margin:0;}
+.left,.right{width:50px; height:200px; line-height:200px; text-align:center;float:left; background:rgba(0,0,0,.2);cursor:pointer;}
+.content{float:left;}
+.content li{float:left;width:200px; height:200px; list-style:none; margin-left:1px;}
+</style>
+</head>
+<body>
+<p>简单轮播 </p>
+<p>&nbsp;</p>
+<div class="DEMO1">
+  <div class="left"><</div><!--左侧按钮-->
+    <ul class="content">
+        <li><img src="./images/1.jpg" width="200" height="200" /></li>
+        <li><img src="./images/2.jpg" width="200" height="200" /></li>
+        <li><img src="./images/3.jpg" width="200" height="200" /></li>
+        <li><img src="./images/4.jpg" width="200" height="200" /></li>
+        <li><img src="./images/5.jpg" width="200" height="200" /></li>
+        <li><img src="./images/6.jpg" width="200" height="200" /></li>
+    </ul>
+	<div class="right">></div><!--右侧按钮-->
+</div>
+<script>
+<!--简单调用按钮-->
+$.mscroll({left:'.left',center:'.content',right:'.right'},{num:3});
+</script>
+</body>
+</html>
